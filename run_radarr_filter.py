@@ -123,7 +123,8 @@ def remove_movie(idf: int, title: str, deletefile: bool, exclude: bool):
     if deletefile:
         del_piece = '&deleteFiles=true'
     if exclude:
-        exclude_piece = '&addExclusion=true'
+        ### DELETE /api/v3/movie/{id}   Paremeters: deleteFiles=true  addImportExclusion=true
+        exclude_piece = '&addImportExclusion=true'
     url = settings.radarr_url + '/movie/{}?apikey={}{}{}'.format(idf, settings.radarr_api_key, del_piece, exclude_piece)
     http_delete(url)
 
